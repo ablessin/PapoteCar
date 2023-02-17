@@ -1,20 +1,14 @@
-import './App.css';
-import {BrowserRouter, Routes, Route} from "react-router-dom";
-import ButtonAppBar from "./components/core/Navbar";
-import React, {useEffect, useState} from "react";
-import Login from "./views/Login";
+import React from "react";
+import "./App.css";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "./configuration/themes/theme";
+import Router from "./router";
 
 function App() {
   return (
-      <BrowserRouter>
-        <div className="app">
-          <ButtonAppBar/>
-          <Routes>
-              <Route exact path="/connexion"  element={<Login></Login>}/>
-
-          </Routes>
-        </div>
-      </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <Router />
+    </ThemeProvider>
   );
 }
 
