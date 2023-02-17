@@ -4,35 +4,41 @@ export const themeOptions = {
   palette: {
     type: 'light',
     primary: {
-      main: '#f4c644',
+      main: '#022b3a',
     },
     secondary: {
-      main: '#f56622',
+      main: '#fbf6f8',
+      light: '#8fb783',
+      dark: '#1e1e1e',
     },
-    black: {
-      main: '#2f2f2f',
+    text: {
+      secondary: '#fdfbfb',
     },
-    background: {
-      default: '#ffffff',
+    info: {
+      main: '#87ceeb',
     },
   },
   typography: {
+    h4: {
+      fontFamily: 'Poppins',
+    },
     fontFamily: 'Poppins',
-    fontSize: 16,
     h1: {
-      color:'#ffffff',
-      fontSize: 60,
-      fontWeight: 900,
+      fontSize: '5.3rem',
     },
     h2: {
-      fontSize: 40,
-      fontWeight: 700,
+      fontSize: '3.5rem',
     },
     h3: {
-      fontSize: 20,
-      fontWeight: 600,
+      fontSize: '3rem',
     },
   },
+  props: {
+    MuiTooltip: {
+      arrow: true,
+    },
+  },
+  spacing: 8,
 };
 
 const theme = createTheme(themeOptions);
