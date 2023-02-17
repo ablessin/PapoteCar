@@ -1,24 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import ButtonAppBar from "./components/core/Navbar";
+import React, {useEffect, useState} from "react";
+import Login from "./views/Login";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+        <div className="app">
+          <ButtonAppBar/>
+          <Routes>
+              <Route exact path="/connexion"  element={<Login></Login>}/>
+
+          </Routes>
+        </div>
+      </BrowserRouter>
   );
 }
 
