@@ -1,0 +1,26 @@
+
+body {
+    background-color: #e0e2e5;
+}
+
+.login-form
+{
+    justify-content: center;
+    min-height: 90vh;
+}
+.button-block{
+    width: 100%;
+}
+.login-background
+{
+    width: 180%;
+    justify-content: center;
+    min-height: 30vh;
+    padding: 50px;
+}
+.buttonlogin {
+    background-color: #8FB783;
+}
+.buttonlogin:hover {
+    background-color: #022B3A;
+}
