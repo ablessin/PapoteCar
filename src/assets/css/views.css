@@ -2,25 +2,36 @@
 body {
     background-color: #e0e2e5;
 }
+.header {
+    height: 600px;
+    background: url('../img/headerLogo.png') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+}
 
-.login-form
-{
-    justify-content: center;
-    min-height: 90vh;
+.root {
+    position: relative;
+    max-width: 400px;
+    max-height: 550px;
+    float: left;
+    -webkit-box-shadow: 16px 14px 16px -17px #000000;
+    box-shadow: 16px 14px 16px -17px #000000;
 }
-.button-block{
-    width: 100%;
+@media screen and (min-width: 1470px){
+    .root {
+        right: 30%;
+    }
 }
-.login-background
-{
-    width: 180%;
-    justify-content: center;
-    min-height: 30vh;
-    padding: 50px;
+@media screen and (max-width: 767px){
+    .root {
+        right: 0;
+        max-width: 400px;
+        max-height: 550px;
+    }
+    .header {
+        height: 800px;
+    }
 }
-.buttonlogin {
-    background-color: #8FB783;
-}
-.buttonlogin:hover {
-    background-color: #022B3A;
+.input {
+    line-height: 1%;
 }
