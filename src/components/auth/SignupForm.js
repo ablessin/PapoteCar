@@ -1,165 +1,148 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Style from "./auth.module.css";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
+import SignupStep1 from "./SignupStep1";
+import SignupStep2 from "./SignupStep2";
+import { Container, Paper } from "@mui/material";
 
-export default function FormPropsTextFields() {
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [gender, setGender] = React.useState("");
-  const [firstName, setFirstName] = React.useState("");
-  const [secondPassword, SetSecondPassword] = React.useState("");
-  // const [username, setUsername] = React.useState("");
-  const [surname, setSurname] = React.useState("");
+const steps = [
+  {
+    label: "Account Information",
+    content: <SignupStep1 />,
+  },
+  {
+    label: "Account Customization",
+    content: <SignupStep2 />,
+  },
+];
 
-  function signup() {
-    const credentials = {
-      email,
-      password,
-      secondPassword,
-      firstName,
-      surname,
-      // username,
-      gender,
-    };
+export default function HorizontalNonLinearStepper() {
+  const [activeStep, setActiveStep] = React.useState(0);
+  const [completed, setCompleted] = React.useState({});
 
-    fetch("http://localhost:3001/api/greenGo/v1/auth/signup/", {
-      method: "POST",
-      body: JSON.stringify(credentials),
+  const totalSteps = () => {
+    return steps.length;
+  };
 
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    });
-  }
+  const completedSteps = () => {
+    return Object.keys(completed).length;
+  };
+
+  const isLastStep = () => {
+    return activeStep === totalSteps() - 1;
+  };
+
+  const allStepsCompleted = () => {
+    return completedSteps() === totalSteps();
+  };
+
+  const handleNext = () => {
+    const newActiveStep =
+      isLastStep() && !allStepsCompleted()
+        ? // It's the last step, but not all steps have been completed,
+          // find the first step that has been completed
+          steps.findIndex((step, i) => !(i in completed))
+        : activeStep + 1;
+    setActiveStep(newActiveStep);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleComplete = () => {
+    const newCompleted = completed;
+    newCompleted[activeStep] = true;
+    setCompleted(newCompleted);
+    handleNext();
+  };
+
+  const handleReset = () => {
+    setActiveStep(0);
+    setCompleted({});
+  };
 
   return (
-    <>
-      <Box
-        sx={{
-          backgroundColor: "primary.dark",
-          width: "60%",
-          margin: "0 auto",
-          p: 5,
-          borderRadius: 5,
-        }}
-      >
-        <Box className={Style.title}>
-          <Typography variant="h2" gutterBottom>
-            S'inscrire
-          </Typography>
-        </Box>
-        <Box
-          component="form"
-          sx={{
-            "& .MuiTextField-root": { m: 1, width: "50%" },
-          }}
-          noValidate
-          autoComplete="off"
-          className={Style.formContainer}
-        >
-          <FormControl>
-            <FormLabel id="demo-row-radio-buttons-group-label">Genre</FormLabel>
-            <RadioGroup
-              row
-              aria-labelledby="demo-row-radio-buttons-group-label"
-              name="row-radio-buttons-group"
-              onChange={(e) => setGender(e.target.value)}
-            >
-              <FormControlLabel
-                value="Femme"
-                control={<Radio />}
-                label="Femme"
-              />
-              <FormControlLabel
-                value="Homme"
-                control={<Radio />}
-                label="Homme"
-              />
-              <FormControlLabel
-                value="Autre"
-                control={<Radio />}
-                label="Autre"
-              />
-            </RadioGroup>
-          </FormControl>
-          <div className={Style.inputForm}>
-            <TextField
-              fullWidth
-              required
-              id="outlined-required"
-              label="Nom"
-              type="text"
-              className={Style.fieldForm}
-              value={surname}
-              onChange={(e) => setSurname(e.target.value)}
-            />
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "85vh",
+      }}
+    >
+      <Container maxWidth="sm">
+        <Paper sx={{ p: 5, height: "auto" }}>
+          <Box>{steps[activeStep].content}</Box>
+
+          <div>
+            <React.Fragment>
+              <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+                {activeStep !== 0 && (
+                  <Button
+                    color="inherit"
+                    disabled={activeStep === 0}
+                    onClick={handleBack}
+                    sx={{ mr: 1 }}
+                  >
+                    Retour
+                  </Button>
+                )}
+                <Box />
+                <Button
+                  variant="contained"
+                  color="success"
+                  onClick={handleComplete}
+                >
+                  Valider
+                </Button>
+              </Box>
+            </React.Fragment>
           </div>
-          <div className={Style.inputForm}>
-            <TextField
-              fullWidth
-              required
-              id="outlined-required"
-              label="Prénom"
-              type="text"
-              className={Style.fieldForm}
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-            />
-          </div>
-          <div className={Style.inputForm}>
-            <TextField
-              fullWidth
-              required
-              id="outlined-required"
-              label="Email"
-              type="email"
-              className={Style.fieldForm}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className={Style.inputForm}>
-            <TextField
-              fullWidth
-              id="outlined-password-input"
-              label="Mot de passe *"
-              type="password"
-              autoComplete="current-password"
-              className={Style.fieldForm}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div className={Style.inputForm}>
-            <TextField
-              fullWidth
-              id="outlined-password-input"
-              label="Confirmation mot de passe *"
-              type="password"
-              autoComplete="current-password"
-              className={Style.fieldForm}
-              value={secondPassword}
-              onChange={(e) => SetSecondPassword(e.target.value)}
-            />
-          </div>
-          <Link href="/connexion" color="inherit" sx={{ mb: 3 }}>
-            Déjà un compte ? Se connecter
-          </Link>
-          <Button onClick={() => signup()} variant="contained" color="success">
-            Valider
-          </Button>
-        </Box>
-      </Box>
-    </>
+        </Paper>
+      </Container>
+    </Box>
   );
 }
+
+//           <Box sx={{ width: "100%" }}>
+//             <Stepper nonLinear activeStep={activeStep}>
+//               {steps.map((label, index) => (
+//                 <Step key={label} completed={completed[index]}>
+//                   <StepButton color="inherit" onClick={handleStep(index)}>
+//                     {label}
+//                   </StepButton>
+//                 </Step>
+//               ))}
+//             </Stepper>
+//           </Box>
+//           <Typography
+//             variant="h4"
+//             component="h1"
+//             sx={{ mb: 2, textAlign: "center" }}
+//           >
+//             Inscription
+//           </Typography>
+//           <Box
+//             component="form"
+//             sx={{
+//               "& .MuiTextField-root": { m: 1, width: "100%" },
+//             }}
+//             noValidate
+//             autoComplete="off"
+//             className={Style.formContainer}
+//           >
+//             <Box>{steps[activeStep].content}</Box>
+//             <Link href="/connexion" color="inherit" sx={{ mb: 3 }}>
+//               Déjà un compte ? Se connecter
+//             </Link>
+//             <Button variant="contained" color="success">
+//               Valider
+//             </Button>
+//           </Box>
+//         </Paper>
+//       </Container>
+//     </Box>
+//   );
+// }
