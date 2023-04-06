@@ -44,7 +44,24 @@ function LoginForm() {
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(`Submitted: ${values.email}, ${values.password}`);
+
+        const credentials = {
+            email: values.email,
+            password: values.password,
+        };
+
+        fetch("http://localhost:8080/api/greenGo/v1/auth/login/", {
+            method: "POST",
+            body: JSON.stringify(credentials),
+
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+        });
     };
+
+
     return (
         <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '85vh'}}>
             <Container maxWidth="sm">
