@@ -58,11 +58,6 @@ export default function HorizontalNonLinearStepper() {
     handleNext();
   };
 
-  const handleReset = () => {
-    setActiveStep(0);
-    setCompleted({});
-  };
-
   return (
     <Box
       sx={{
@@ -105,44 +100,3 @@ export default function HorizontalNonLinearStepper() {
     </Box>
   );
 }
-
-//           <Box sx={{ width: "100%" }}>
-//             <Stepper nonLinear activeStep={activeStep}>
-//               {steps.map((label, index) => (
-//                 <Step key={label} completed={completed[index]}>
-//                   <StepButton color="inherit" onClick={handleStep(index)}>
-//                     {label}
-//                   </StepButton>
-//                 </Step>
-//               ))}
-//             </Stepper>
-//           </Box>
-//           <Typography
-//             variant="h4"
-//             component="h1"
-//             sx={{ mb: 2, textAlign: "center" }}
-//           >
-//             Inscription
-//           </Typography>
-//           <Box
-//             component="form"
-//             sx={{
-//               "& .MuiTextField-root": { m: 1, width: "100%" },
-//             }}
-//             noValidate
-//             autoComplete="off"
-//             className={Style.formContainer}
-//           >
-//             <Box>{steps[activeStep].content}</Box>
-//             <Link href="/connexion" color="inherit" sx={{ mb: 3 }}>
-//               Déjà un compte ? Se connecter
-//             </Link>
-//             <Button variant="contained" color="success">
-//               Valider
-//             </Button>
-//           </Box>
-//         </Paper>
-//       </Container>
-//     </Box>
-//   );
-// }
