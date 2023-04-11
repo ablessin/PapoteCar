@@ -11,8 +11,8 @@ body {
 
 .root {
     position: relative;
-    max-width: 400px;
-    max-height: 550px;
+    max-width: 380px;
+    max-height: 500px;
     float: left;
     -webkit-box-shadow: 16px 14px 16px -17px #000000;
     box-shadow: 16px 14px 16px -17px #000000;
@@ -34,4 +34,40 @@ body {
 }
 .input {
     line-height: 1%;
+}
+.boxFooter {
+    width: 90%;
+    height: 180px;
+    background-color: #022B3A;
+    margin: auto;
+}
+@media screen and (max-width: 767px){
+    .boxFooter {
+        height: 630px;
+    }
+}
+
+
+.rootCard {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 190px;
+    margin: 10px;
+}
+@media screen and (max-width: 767px) {
+    .rootCard {
+        height: 220px;
+    }
+}
+.media {
+    height: 80px;
+    width: 80px;
+    border-radius: 10%;
+    margin-left: 10px;
+}
+
+.content {
+    margin-left: 10px;
+    float: right;
 }
