@@ -14,7 +14,7 @@ export default function Home() {
           Bordeaux - Lille
         </Typography>
         <Box mb={5}>
-          <Map />
+          <Map width="200vh" height="500px" />
         </Box>
         <Box mb={5} sx={{ width: "80%" }}>
           <Recap />
