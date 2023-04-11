@@ -2,12 +2,15 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
+import SendIcon from "@mui/icons-material/Send";
 
 export default function ChatMessage({ message, isSender }) {
   return (
     <Box
       sx={{
         display: "flex",
+        flexDirection: "column",
         justifyContent: isSender ? "flex-end" : "flex-start",
         mb: 1,
       }}
@@ -25,6 +28,15 @@ export default function ChatMessage({ message, isSender }) {
           </Box>
         </Grid>
       </Grid>
+      <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+        <TextField
+          id="outlined-basic"
+          label="Écrire un message"
+          variant="outlined"
+          sx={{ width: "60%", marginRight: "1rem" }}
+        />
+        <SendIcon sx={{ height: "auto", width: "40px" }} />
+      </Box>
     </Box>
   );
 }

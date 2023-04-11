@@ -5,6 +5,7 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import ChatList from "../components/chat/ChatList";
 import ChatMessage from "../components/chat/ChatMessage";
+import ChatInfo from "../components/chat/ChatInfo";
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -28,7 +29,9 @@ export default function BasicGrid() {
           </Item>
         </Grid>
         <Grid item xs={3}>
-          <Item></Item>
+          <Item>
+            <ChatInfo />
+          </Item>
         </Grid>
       </Grid>
     </Box>

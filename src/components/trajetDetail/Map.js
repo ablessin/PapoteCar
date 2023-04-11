@@ -8,18 +8,18 @@ import {
 
 const googleMapsApiKey = process.env.REACT_APP_GOOGLEMAPAPIKEY;
 
-const containerStyle = {
-  width: "1900px",
-  height: "500px",
-};
-
 const center = {
   lat: 50.8566,
   lng: 2.3522,
 };
 
-function Map() {
+function Map(props) {
   const [response, setResponse] = React.useState(null);
+
+  const containerStyle = {
+    width: props.width,
+    height: props.height,
+  };
 
   const directionsCallback = (res) => {
     if (res !== null) {
