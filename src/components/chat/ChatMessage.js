@@ -33,9 +33,14 @@ export default function ChatMessage({ message, isSender }) {
           id="outlined-basic"
           label="Écrire un message"
           variant="outlined"
-          sx={{ width: "60%", marginRight: "1rem" }}
+          sx={{
+            width: "60%",
+            marginRight: "1rem",
+            backgroundColor: "#329B66",
+            color: "#fff",
+          }}
         />
-        <SendIcon sx={{ height: "auto", width: "40px" }} />
+        <SendIcon sx={{ height: "auto", width: "40px", color: "#329B66" }} />
       </Box>
     </Box>
   );
