@@ -5,6 +5,7 @@ import Trajet from "../pages/Trajet";
 import Home from "../pages/Home";
 import NotFound from "../pages/404";
 import Discussion from "../pages/Discussion";
+import TrajetDetails from "../pages/TrajetDetails";
 
 const Router = () => {
   return (
@@ -16,6 +17,7 @@ const Router = () => {
           <Route exact path={"/trajet"} element={<Trajet/>}/>
           <Route exact path={"/"} element={<Home />} />
           <Route exact path={"/discussion"} element={<Discussion />} />
+          <Route exact path={"/trajet/details"} element={<TrajetDetails />} />
           <Route path={"*"} element={<NotFound/>} />
         </Route>
       </Routes>
