@@ -1,73 +1,64 @@
-
 body {
-    background-color: #e0e2e5;
+  background-color: #e0e2e5;
 }
 .header {
-    height: 600px;
-    background: url('../img/headerLogo.png') no-repeat center center/cover;
-    display: flex;
-    align-items: center;
+  height: 600px;
+  background: url("../img/headerLogo.png") no-repeat center center/cover;
+  display: flex;
+  align-items: center;
 }
 
 .root {
-    position: relative;
-    max-width: 380px;
-    max-height: 500px;
-    float: left;
-    -webkit-box-shadow: 16px 14px 16px -17px #000000;
-    box-shadow: 16px 14px 16px -17px #000000;
+  position: relative;
+  max-width: 380px;
+  max-height: 500px;
+  float: left;
+  -webkit-box-shadow: 16px 14px 16px -17px #000000;
+  box-shadow: 16px 14px 16px -17px #000000;
 }
-@media screen and (min-width: 1470px){
-    .root {
-        right: 30%;
-    }
-}
-@media screen and (max-width: 767px){
-    .root {
-        right: 0;
-        max-width: 400px;
-        max-height: 550px;
-    }
-    .header {
-        height: 800px;
-    }
-}
-.input {
-    line-height: 1%;
-}
-.boxFooter {
-    width: 90%;
-    height: 180px;
-    background-color: #022B3A;
-    margin: auto;
-}
-@media screen and (max-width: 767px){
-    .boxFooter {
-        height: 630px;
-    }
-}
-
-
-.rootCard {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    height: 190px;
-    margin: 10px;
+@media screen and (min-width: 1470px) {
+  .root {
+    right: 30%;
+  }
 }
 @media screen and (max-width: 767px) {
-    .rootCard {
-        height: 220px;
-    }
+  .root {
+    right: 0;
+    max-width: 400px;
+    max-height: 550px;
+  }
+  .header {
+    height: 800px;
+  }
+}
+.input {
+  line-height: 1%;
+}
+.boxFooter {
+  background-color: #022b3a;
+  margin: auto;
+}
+
+.rootCard {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 190px;
+  margin: 10px;
+}
+@media screen and (max-width: 767px) {
+  .rootCard {
+    height: 220px;
+  }
 }
 .media {
-    height: 80px;
-    width: 80px;
-    border-radius: 10%;
-    margin-left: 10px;
+  height: 80px;
+  width: 80px;
+  border-radius: 10%;
+  margin-left: 10px;
 }
 
 .content {
-    margin-left: 10px;
-    float: right;
+  margin-left: 10px;
+  float: right;
 }
