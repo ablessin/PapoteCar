@@ -13,7 +13,7 @@ function App() {
             <ButtonAppBar/>
             <Router/>
             <Box mt={5} mb={2}/>
-            <Footer/>
+            <Footer />
         </ThemeProvider>
     );
 }

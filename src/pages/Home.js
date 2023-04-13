@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Box } from "@mui/material";
 import "../assets/css/views.css";
 import HeaderLogo from "../components/core/HeaderLogo";
-import CardInfo from "../components/CardInfo";
-import TablePropo from "../components/TablePropo";
+import CardInfo from "../components/trajet/CardInfo";
+import TablePropo from "../components/core/TablePropo";
 import Container from "@mui/material/Container";
 export default function Home() {
 

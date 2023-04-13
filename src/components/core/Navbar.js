@@ -14,6 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import Logo from '../../assets/img/logoGreenGo.png';
 import Link from "@mui/material/Link";
+import { useNavigate } from 'react-router-dom';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import CommuteIcon from '@material-ui/icons/Commute';
 import MessageIcon from '@material-ui/icons/Message';
@@ -24,7 +25,7 @@ import {Chip} from "@mui/material";
 const pages = ['Rechercher un trajet', 'Proposer un trajet'];
 const settings = [
     { label: 'Profil', icon: <AccountCircleIcon sx={{backgroundColor: "white"}} /> },
-    { label: 'Trajet', icon: <CommuteIcon/>, component: Link, to: "/connexion"  },
+    { label: 'Trajet', icon: <CommuteIcon/>, path: "/dashboard"   },
     { label: 'Message', icon: <MessageIcon /> },
     { label: 'Notification', icon: <NotificationsIcon /> },
     { label: 'Déconnexion', icon: <LogoutIcon /> }
@@ -40,6 +41,7 @@ function ResponsiveAppBar() {
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
     };
+
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
@@ -168,8 +170,8 @@ function ResponsiveAppBar() {
                             onClose={handleCloseUserMenu}
                         >
                             {settings.map((setting, index) => (
-                                <MenuItem  key={setting.label} onClick={handleCloseUserMenu}>
-                                    <Chip sx={{color: color, width: "100%"}} icon={setting.icon} label={setting.label} onMouseMove={handleChange} variant="outlined"  component={setting.component} to={setting.to}/>
+                                <MenuItem  key={setting.label} component={Link} to={setting.path}>
+                                    <Chip sx={{ width: "100%"}} icon={setting.icon} label={setting.label}  variant="outlined" />
                                 </MenuItem>
                             ))}
                         </Menu>

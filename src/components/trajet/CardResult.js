@@ -10,8 +10,8 @@ import {
     useMediaQuery,
     useTheme
 } from '@mui/material';
-import './../assets/css/views.css';
-import Logo from "./../assets/img/logoGreenGo.png";
+import '../../assets/css/views.css';
+import Logo from "../../assets/img/logoGreenGo.png";
 import {
     Alert,
     Timeline,

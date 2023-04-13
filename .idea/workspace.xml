@@ -8,12 +8,18 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/css/views.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/views.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CardTrip.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardTrip.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/auth/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/auth/LoginForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CardInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/trajet/CardInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CardResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/trajet/CardResult.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CardTrip.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/trajet/CardTrip.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TableListeTrajet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/trajet/TableListeTrajet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TablePropo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/TablePropo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/HeaderLogo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/HeaderLogo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/core/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/Navbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Trajet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Trajet.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,9 +59,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;19.4.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.15.3&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/pierr/Documents/pipeline&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/papotecar&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -68,6 +72,9 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\papotecar\src\components\core" />
+      <recent name="C:\xampp\htdocs\papotecar\src\components\trajet" />
+      <recent name="C:\xampp\htdocs\papotecar\src\components\dashboard" />
       <recent name="C:\xampp\htdocs\papotecar\src\assets\img" />
     </key>
   </component>
@@ -83,11 +90,7 @@
       <workItem from="1676533566252" duration="6737000" />
       <workItem from="1676544194244" duration="10173000" />
       <workItem from="1677741051381" duration="18185000" />
-      <workItem from="1678740274246" duration="27000" />
-      <workItem from="1678968038411" duration="9454000" />
-      <workItem from="1679054853194" duration="13907000" />
-      <workItem from="1680249950508" duration="24000" />
-      <workItem from="1680762909458" duration="3321000" />
+      <workItem from="1681366006055" duration="4174000" />
     </task>
     <servers />
   </component>

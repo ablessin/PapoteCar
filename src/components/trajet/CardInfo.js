@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
-import ECOCardInfo from '../assets/img/ECOCardInfo.png';
-import CARDInfo2 from '../assets/img/CARDInfor2.jpg';
-import CARDInfo3 from '../assets/img/CARDInfo3.jpg';
+import ECOCardInfo from '../../assets/img/ECOCardInfo.png';
+import CARDInfo2 from '../../assets/img/CARDInfor2.jpg';
+import CARDInfo3 from '../../assets/img/CARDInfo3.jpg';
 
 import {Box, Card, CardActionArea, CardContent, CardMedia} from "@mui/material";
 import Typography from "@mui/material/Typography";

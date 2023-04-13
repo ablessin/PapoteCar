@@ -5,7 +5,7 @@ import Trajet from "../pages/Trajet";
 import Home from "../pages/Home";
 import NotFound from "../pages/404";
 import Discussion from "../pages/Discussion";
-
+import Map from "../pages/DashboardTrajet";
 const Router = () => {
   return (
     <BrowserRouter>
@@ -16,6 +16,7 @@ const Router = () => {
           <Route exact path={"/trajet"} element={<Trajet/>}/>
           <Route exact path={"/"} element={<Home />} />
           <Route exact path={"/discussion"} element={<Discussion />} />
+          <Route exact path={"/dashboard"} element={<Map />} />
           <Route path={"*"} element={<NotFound/>} />
         </Route>
       </Routes>
