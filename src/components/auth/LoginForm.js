@@ -13,7 +13,6 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import "../../assets/css/views.css";
-import GoogleLogin from "react-google-login";
 
 // COMPONENTS POUR LA PARTIE DE CONNEXION DE L'APPLICATION
 function LoginForm() {
@@ -34,26 +33,33 @@ function LoginForm() {
     event.preventDefault();
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(`Submitted: ${values.email}, ${values.password}`);
 
     const credentials = {
-      email: values.email,
+      username: values.email,
       password: values.password,
     };
 
-    fetch("http://localhost:8080/api/greenGo/v1/auth/signin/", {
-      method: "POST",
-      body: JSON.stringify(credentials),
-
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    });
+    try {
+      const response = await fetch(
+        "http://localhost:8080/api/greenGo/v1/auth/signin",
+        {
+          method: "POST",
+          body: JSON.stringify(credentials),
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await response.json();
+      localStorage.setItem("GreenGoGigaToken", data.accessToken);
+    } catch (error) {
+      console.error(error);
+    }
   };
-
   return (
     <Box
       sx={{
@@ -87,7 +93,7 @@ function LoginForm() {
                   required
                   id="email"
                   label="Adresse e-mail"
-                  type="email"
+                  //   type="email"
                   value={values.email}
                   onChange={handleInputChange("email")}
                   sx={{ width: "100%" }}
