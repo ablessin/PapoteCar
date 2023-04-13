@@ -36,13 +36,8 @@ body {
     line-height: 1%;
 }
 .boxFooter {
-    position: relative;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 180px;
-    background-color: #022B3A;
-    margin: auto;
+  background-color: #022b3a;
+  margin: auto;
 }
 @media screen and (max-width: 767px){
     .boxFooter {

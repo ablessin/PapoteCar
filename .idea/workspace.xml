@@ -5,21 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cde1c60c-71e7-4c95-8e22-3b44151006b6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/trajetDetail/Map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/trajetDetail/Passenger.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/trajetDetail/Recap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/TrajetDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/css/views.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/views.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CardInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/trajet/CardInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CardResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/trajet/CardResult.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CardTrip.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/trajet/CardTrip.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TableListeTrajet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/trajet/TableListeTrajet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TablePropo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/TablePropo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/core/HeaderLogo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/HeaderLogo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/auth/SignupForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/auth/SignupForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/chat/ChatInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/chat/ChatInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/chat/ChatMessage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/chat/ChatMessage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/core/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Trajet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Trajet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/trajet/CardTrip.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/trajet/CardTrip.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/trajet/TableListeTrajet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/trajet/TableListeTrajet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Discussion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Discussion.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +91,7 @@
       <workItem from="1676533566252" duration="6737000" />
       <workItem from="1676544194244" duration="10173000" />
       <workItem from="1677741051381" duration="18185000" />
-      <workItem from="1681366006055" duration="4174000" />
+      <workItem from="1681366006055" duration="5441000" />
     </task>
     <servers />
   </component>
