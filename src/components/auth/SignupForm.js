@@ -1,25 +1,47 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import SignupStep1 from "./SignupStep1";
 import SignupStep2 from "./SignupStep2";
 import { Container, Paper } from "@mui/material";
 
-const steps = [
-  {
-    label: "Account Information",
-    content: <SignupStep1 />,
-  },
-  {
-    label: "Account Customization",
-    content: <SignupStep2 />,
-  },
-];
-
 export default function HorizontalNonLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
+
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [gender, setGender] = React.useState("");
+  const [firstName, setFirstName] = React.useState("");
+  const [secondPassword, setSecondPassword] = React.useState("");
+  const [surname, setSurname] = React.useState("");
+  const [username, setUserName] = React.useState("");
+
+  const steps = [
+    {
+      label: "Account Information",
+      content: (
+        <SignupStep1
+          email={email}
+          setEmail={setEmail}
+          password={password}
+          setPassword={setPassword}
+          gender={gender}
+          setGender={setGender}
+          firstName={firstName}
+          setFirstName={setFirstName}
+          surname={surname}
+          setSurname={setSurname}
+          secondPassword={secondPassword}
+          setSecondPassword={setSecondPassword}
+        />
+      ),
+    },
+    {
+      label: "Account Customization",
+      content: <SignupStep2 username={username} setUserName={setUserName} />,
+    },
+  ];
 
   const totalSteps = () => {
     return steps.length;
@@ -51,11 +73,43 @@ export default function HorizontalNonLinearStepper() {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleComplete = () => {
+  const handleComplete = async () => {
     const newCompleted = completed;
     newCompleted[activeStep] = true;
     setCompleted(newCompleted);
     handleNext();
+    if (allStepsCompleted()) {
+      const data = {
+        email: email,
+        password: password,
+        gender: gender,
+        surname: surname,
+        firstName: firstName,
+        username: username,
+        role: "user",
+      };
+
+      const response = await fetch(
+        "http://localhost:8080/api/greenGo/v1/auth/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+      console.log(response);
+
+      // Vérification de la réponse de l'API
+      if (response.ok) {
+        // Redirection vers la page de confirmation
+        window.location.href = "/";
+      } else {
+        // Affichage d'un message d'erreur
+        alert("Une erreur s'est produite lors de l'inscription.");
+      }
+    }
   };
 
   return (

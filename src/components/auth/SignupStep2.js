@@ -1,12 +1,10 @@
 import * as React from "react";
 import TextField from "@mui/material/TextField";
 import Style from "./auth.module.css";
-import { Grid, Stack, Camera } from "@mui/material";
+import { Grid, Stack } from "@mui/material";
 import Typography from "@mui/material/Typography";
 
-export default function SignpStep1() {
-  const [nickname, setNickname] = React.useState("");
-
+export default function SignpStep2(props) {
   return (
     <>
       <Grid item xs={12} sx={{ width: "100%" }}>
@@ -30,8 +28,8 @@ export default function SignpStep1() {
           label="Nom d'utilisateur"
           type="text"
           className={Style.fieldForm}
-          value={nickname}
-          onChange={(e) => setNickname(e.target.value)}
+          value={props.username}
+          onChange={(e) => props.setUserName(e.target.value)}
           sx={{ width: "100%" }}
         />
       </Grid>
