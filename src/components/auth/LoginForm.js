@@ -56,6 +56,7 @@ function LoginForm() {
       );
       const data = await response.json();
       localStorage.setItem("GreenGoGigaToken", data.accessToken);
+      localStorage.setItem("GreenGoGigaEmail", values.email);
     } catch (error) {
       console.error(error);
     }
