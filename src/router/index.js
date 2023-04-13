@@ -5,6 +5,7 @@ import Trajet from "../pages/Trajet";
 import Home from "../pages/Home";
 import NotFound from "../pages/404";
 import Discussion from "../pages/Discussion";
+import Map from "../pages/DashboardTrajet";
 import TrajetDetails from "../pages/TrajetDetails";
 
 const Router = () => {

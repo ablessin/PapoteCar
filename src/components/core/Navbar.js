@@ -14,6 +14,13 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import Logo from "../../assets/img/logoGreenGo.png";
 import Link from "@mui/material/Link";
+import { useNavigate } from 'react-router-dom';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import CommuteIcon from '@material-ui/icons/Commute';
+import MessageIcon from '@material-ui/icons/Message';
+import NotificationsIcon from '@material-ui/icons/Notifications';
+import LogoutIcon from '@material-ui/icons/ExitToApp';
+import {Chip} from "@mui/material";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import CommuteIcon from "@material-ui/icons/Commute";
 import MessageIcon from "@material-ui/icons/Message";
@@ -37,15 +44,16 @@ function ResponsiveAppBar() {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [color, setColor] = React.useState("white");
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+    const handleOpenNavMenu = (event) => {
+        setAnchorElNav(event.currentTarget);
+    };
+    const handleOpenUserMenu = (event) => {
+        setAnchorElUser(event.currentTarget);
+    };
+
+    const handleCloseNavMenu = () => {
+        setAnchorElNav(null);
+    };
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
@@ -148,46 +156,38 @@ function ResponsiveAppBar() {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0, backgroundColor: "#022B3A" }}>
-            <Tooltip title="Paramètres">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "40px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting, index) => (
-                <MenuItem key={setting.label} onClick={handleCloseUserMenu}>
-                  <Chip
-                    sx={{ color: color, width: "100%" }}
-                    icon={setting.icon}
-                    label={setting.label}
-                    onMouseMove={handleChange}
-                    variant="outlined"
-                    component={setting.component}
-                    to={setting.to}
-                  />
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
-  );
+                    <Box sx={{ flexGrow: 0,backgroundColor: "#022B3A" }}>
+                        <Tooltip title="Paramètres">
+                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                <Avatar alt="" src="/static/images/avatar/2.jpg" />
+                            </IconButton>
+                        </Tooltip>
+                        <Menu
+                            sx={{ mt: '40px'}}
+                            id="menu-appbar"
+                            anchorEl={anchorElUser}
+                            anchorOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            open={Boolean(anchorElUser)}
+                            onClose={handleCloseUserMenu}
+                        >
+                            {settings.map((setting, index) => (
+                                <MenuItem  key={setting.label} component={Link} to={setting.path}>
+                                    <Chip sx={{ width: "100%"}} icon={setting.icon} label={setting.label}  variant="outlined" />
+                                </MenuItem>
+                            ))}
+                        </Menu>
+                    </Box>
+                </Toolbar>
+            </Container>
+        </AppBar>
+    );
 }
 export default ResponsiveAppBar;

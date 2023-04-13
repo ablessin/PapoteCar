@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import "../../assets/css/views.css";
-import CardTrip from "../CardTrip";
+import CardTrip from "../trajet/CardTrip";
 
 // COMPONENT HEADER DU SITE
 function HeaderLogo() {

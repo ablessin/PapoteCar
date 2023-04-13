@@ -2,7 +2,7 @@
 import React, {useState} from 'react';
 import {Box} from "@mui/material";
 import HeaderLogo from "../components/core/HeaderLogo";
-import TableListeTrajet from "../components/TableListeTrajet";
+import TableListeTrajet from "../components/trajet/TableListeTrajet";
 import { useLocation } from 'react-router-dom';
 
 export default function Trajet() {

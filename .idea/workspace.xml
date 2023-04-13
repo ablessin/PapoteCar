@@ -5,15 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cde1c60c-71e7-4c95-8e22-3b44151006b6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/trajetDetail/Map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/trajetDetail/Passenger.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/trajetDetail/Recap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/TrajetDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/css/views.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/views.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CardTrip.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardTrip.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/auth/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/auth/LoginForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/auth/SignupForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/auth/SignupForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/chat/ChatInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/chat/ChatInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/chat/ChatMessage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/chat/ChatMessage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/core/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/trajet/CardTrip.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/trajet/CardTrip.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/trajet/TableListeTrajet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/trajet/TableListeTrajet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Discussion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Discussion.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,9 +60,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;19.4.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.15.3&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/pierr/Documents/pipeline&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/papotecar&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -68,6 +73,9 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\papotecar\src\components\core" />
+      <recent name="C:\xampp\htdocs\papotecar\src\components\trajet" />
+      <recent name="C:\xampp\htdocs\papotecar\src\components\dashboard" />
       <recent name="C:\xampp\htdocs\papotecar\src\assets\img" />
     </key>
   </component>
@@ -83,11 +91,7 @@
       <workItem from="1676533566252" duration="6737000" />
       <workItem from="1676544194244" duration="10173000" />
       <workItem from="1677741051381" duration="18185000" />
-      <workItem from="1678740274246" duration="27000" />
-      <workItem from="1678968038411" duration="9454000" />
-      <workItem from="1679054853194" duration="13907000" />
-      <workItem from="1680249950508" duration="24000" />
-      <workItem from="1680762909458" duration="3321000" />
+      <workItem from="1681366006055" duration="5441000" />
     </task>
     <servers />
   </component>
