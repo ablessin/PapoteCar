@@ -21,12 +21,6 @@ import MessageIcon from '@material-ui/icons/Message';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import LogoutIcon from '@material-ui/icons/ExitToApp';
 import {Chip} from "@mui/material";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import CommuteIcon from "@material-ui/icons/Commute";
-import MessageIcon from "@material-ui/icons/Message";
-import NotificationsIcon from "@material-ui/icons/Notifications";
-import LogoutIcon from "@material-ui/icons/ExitToApp";
-import { Chip } from "@mui/material";
 
 const pages = ["Proposer un trajet"];
 const settings = [
