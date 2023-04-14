@@ -7,7 +7,8 @@ import NotFound from "../pages/404";
 import Discussion from "../pages/Discussion";
 import Map from "../pages/DashboardTrajet";
 import TrajetDetails from "../pages/TrajetDetails";
-
+import DashboardTrajet from "../pages/DashboardTrajet";
+import NouveauTrajet from "../pages/NouveauTrajet";
 const Router = () => {
   return (
     <BrowserRouter>
@@ -20,6 +21,8 @@ const Router = () => {
           <Route exact path={"/discussion"} element={<Discussion />} />
           <Route exact path={"/trajet/details"} element={<TrajetDetails />} />
           <Route path={"*"} element={<NotFound/>} />
+          <Route exact path={"/dashboard"} element={<DashboardTrajet/>}/>
+          <Route exact path={"/NouveauTrajet"} element={<NouveauTrajet/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

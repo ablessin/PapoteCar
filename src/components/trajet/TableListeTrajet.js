@@ -104,7 +104,7 @@ export default function TableListeTrajet(props) {
                               arrivalTime="18h00"
                               price="15"
                               dateTrip={departureDate}
-                            ></CardResult>
+                            />
                           </TableCell>
                         );
                       })}

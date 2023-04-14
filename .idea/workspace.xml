@@ -7,7 +7,9 @@
     <list default="true" id="cde1c60c-71e7-4c95-8e22-3b44151006b6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/core/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/trajet/TableListeTrajet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/trajet/TableListeTrajet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feat/ManageTrajet" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -46,7 +48,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/papotecar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/PapoteCarBack&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -59,6 +61,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\papotecar" />
       <recent name="C:\xampp\htdocs\papotecar\src\components\core" />
       <recent name="C:\xampp\htdocs\papotecar\src\components\trajet" />
       <recent name="C:\xampp\htdocs\papotecar\src\components\dashboard" />
@@ -84,6 +87,8 @@
       <workItem from="1680249950508" duration="24000" />
       <workItem from="1680762909458" duration="3321000" />
       <workItem from="1681366006055" duration="5847000" />
+      <workItem from="1681379305019" duration="996000" />
+      <workItem from="1681386453958" duration="6046000" />
     </task>
     <servers />
   </component>
