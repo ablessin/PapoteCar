@@ -17,7 +17,7 @@ import "../../assets/css/views.css";
 // COMPONENTS POUR LA PARTIE DE CONNEXION DE L'APPLICATION
 function LoginForm() {
   const [values, setValues] = useState({
-    email: "",
+    username: "",
     password: "",
     showPassword: false,
   });
@@ -35,10 +35,10 @@ function LoginForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(`Submitted: ${values.email}, ${values.password}`);
+    console.log(`Submitted: ${values.username}, ${values.password}`);
 
     const credentials = {
-      username: values.email,
+      username: values.username,
       password: values.password,
     };
 
@@ -56,7 +56,7 @@ function LoginForm() {
       );
       const data = await response.json();
       localStorage.setItem("GreenGoGigaToken", data.accessToken);
-      localStorage.setItem("GreenGoGigaEmail", values.email);
+      localStorage.setItem("GreenGoGigaUsername", values.username);
     } catch (error) {
       console.error(error);
     }
@@ -92,11 +92,11 @@ function LoginForm() {
               <Grid item xs={12} sx={{ width: "100%" }}>
                 <TextField
                   required
-                  id="email"
-                  label="Adresse e-mail"
-                  //   type="email"
-                  value={values.email}
-                  onChange={handleInputChange("email")}
+                  id="username"
+                  label="Nom d'utilisateur"
+                  type="text"
+                  value={values.username}
+                  onChange={handleInputChange("username")}
                   sx={{ width: "100%" }}
                 />
               </Grid>
