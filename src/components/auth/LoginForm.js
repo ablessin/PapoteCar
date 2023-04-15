@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import "../../assets/css/views.css";
+import { Link } from "react-router-dom";
 
 // COMPONENTS POUR LA PARTIE DE CONNEXION DE L'APPLICATION
 function LoginForm() {
@@ -35,7 +36,6 @@ function LoginForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(`Submitted: ${values.username}, ${values.password}`);
 
     const credentials = {
       username: values.username,
@@ -63,7 +63,7 @@ function LoginForm() {
         window.location.href = "/";
       } else {
         // Affichage d'un message d'erreur
-        alert("Une erreur s'est produite lors de l'inscription.");
+        alert("Une erreur s'est produite lors de la connexion.");
       }
     } catch (error) {
       console.error(error);
@@ -138,9 +138,14 @@ function LoginForm() {
                   />
                 </FormControl>
               </Grid>
+              <Typography mt={2}>
+                {" "}
+                Pas encore de compte ?{" "}
+                <Link to="/inscription"> S'inscrire </Link>
+              </Typography>
               <Grid container justifyContent="center">
                 <Grid item xs={12} sm={6}>
-                  <Box mt={2} mb={5} />
+                  <Box mb={2} />
                   <Button
                     title="Se connecter"
                     className="buttonlogin"
