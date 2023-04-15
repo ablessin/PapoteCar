@@ -99,7 +99,6 @@ export default function HorizontalNonLinearStepper() {
           body: JSON.stringify(data),
         }
       );
-      console.log(response);
 
       // Vérification de la réponse de l'API
       if (response.ok) {

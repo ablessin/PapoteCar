@@ -28,15 +28,12 @@ function ResponsiveAppBar() {
   React.useEffect(() => {
     if (localStorage.getItem("GreenGoGigaToken")) {
       setIsAuthenticated(true);
-      console.log("connecté");
     } else {
       setIsAuthenticated(false);
-      console.log("déconnecté");
     }
   }, []);
 
   const handleLogout = () => {
-    console.log("toto");
     localStorage.removeItem("GreenGoGigaToken");
     localStorage.removeItem("GreenGoGigaUsername");
     window.location.href = "/";
