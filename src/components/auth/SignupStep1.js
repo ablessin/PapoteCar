@@ -9,15 +9,6 @@ import FormLabel from "@mui/material/FormLabel";
 import { Grid } from "@mui/material";
 
 export default function SignpStep1(props) {
-  // const [email, setEmail] = React.useState("");
-  // const [password, setPassword] = React.useState("");
-  // const [gender, setGender] = React.useState("");
-  // const [firstName, setFirstName] = React.useState("");
-  // const [secondPassword, setSecondPassword] = React.useState("");
-  // const [surname, setSurname] = React.useState("");
-
-  // const { firstName, email, password, gender, secondPassword, surname } = props;
-
   return (
     <>
       <Grid item xs={12} sx={{ width: "100%" }}>
