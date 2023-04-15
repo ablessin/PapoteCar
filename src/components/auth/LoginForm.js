@@ -55,8 +55,16 @@ function LoginForm() {
         }
       );
       const data = await response.json();
-      localStorage.setItem("GreenGoGigaToken", data.accessToken);
-      localStorage.setItem("GreenGoGigaUsername", values.username);
+
+      if (response.ok) {
+        // Redirection vers la page de confirmation
+        localStorage.setItem("GreenGoGigaToken", data.accessToken);
+        localStorage.setItem("GreenGoGigaUsername", values.username);
+        window.location.href = "/";
+      } else {
+        // Affichage d'un message d'erreur
+        alert("Une erreur s'est produite lors de l'inscription.");
+      }
     } catch (error) {
       console.error(error);
     }
