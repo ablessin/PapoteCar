@@ -36,9 +36,10 @@ function ResponsiveAppBar() {
   }, []);
 
   const handleLogout = () => {
+    console.log("toto");
     localStorage.removeItem("GreenGoGigaToken");
     localStorage.removeItem("GreenGoGigaUsername");
-    console.log("toto");
+    window.location.href = "/";
     setIsAuthenticated(false);
   };
 
@@ -206,6 +207,7 @@ function ResponsiveAppBar() {
                         sx={{ width: "100%" }}
                         icon={setting.icon}
                         label={setting.label}
+                        onClick={setting.onClick}
                         variant="outlined"
                       />
                     </MenuItem>
