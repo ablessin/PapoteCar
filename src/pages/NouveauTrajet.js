@@ -1,108 +1,214 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from "react";
 import {
-    Box, Step, StepLabel, Stepper, Tab, TextField, Typography
-} from '@mui/material';
-import '../assets/css/views.css';
-import {Button} from "@material-ui/core";
-import NewTrajetStep1 from "../components/newTrajet/NewTrajetStep1";
-import Container from "@mui/material/Container";
+    TextField,
+    Grid,
+    Button,
+    Container,
+    InputAdornment,
+    Chip,
+    Dialog,
+    DialogTitle,
+    DialogContent, DialogContentText, DialogActions, Slide, Snackbar, Box
+} from "@mui/material";
 import Map from "../components/trajetDetail/Map";
-const steps = ['Départ', 'Arrivé', 'Ajouté des étapes'];
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import {Alert} from "@mui/lab";
 
-export default function NouveauTrajet() {
-    const [activeStep, setActiveStep] = React.useState(0);
-    const [skipped, setSkipped] = React.useState(new Set());
+const StepperForm = () => {
+    const [selectedDate, setSelectedDate] = useState('');
+    const [selectedTime, setSelectedTime] = useState('');
+    const [text1, setText1] = useState("");
+    const [text2, setText2] = useState("");
+    const [depart, setDepart] = useState('');
+    const [arrive, setArrive] = useState('');
+    const [departMap, setDepartMap] = useState('');
+    const [arriveMap, setArriveMap] = useState('');
+    const [cities, setCities] = useState([]);
+    const [cityInput, setCityInput] = useState('');
+    const [etapeVilles, setEtapeVilles] = useState([]);
+    const [showAlert, setShowAlert] = useState(false);
 
-    const isStepOptional = (step) => {
-        return step === 1;
+    const handleButtonClick = async () => {
+        const isValid = validateForm();
+        if (isValid) {
+            setShowAlert(true);
+            const data = {
+                date: selectedDate,
+                time: selectedTime,
+                depart: depart,
+                arrive: arrive,
+                cities: cities,
+            };
+
+            const response = await fetch(
+                "http://localhost:8080/api/greenGo/v1/trajet/create",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                }
+            );
+            if (response.ok) {
+                setTimeout(() => {
+                    window.location.href = "/";
+                }, 1000);
+            } else {
+                // Affichage d'un message d'erreur
+                alert("Une erreur s'est produite lors de l'inscription.");
+            }
+        }
     };
+    useEffect(() => {
+        let timeoutId;
 
-    const isStepSkipped = (step) => {
-        return skipped.has(step);
-    };
-
-    const handleNext = () => {
-        let newSkipped = skipped;
-        if (isStepSkipped(activeStep)) {
-            newSkipped = new Set(newSkipped.values());
-            newSkipped.delete(activeStep);
+        if (showAlert) {
+            timeoutId = setTimeout(() => {
+                setShowAlert(false);
+            }, 3000); // Temps en millisecondes avant de cacher l'alerte (3 secondes dans cet exemple)
         }
 
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-        setSkipped(newSkipped);
+        return () => {
+            clearTimeout(timeoutId);
+        };
+    }, [showAlert]);
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
     };
-
-    const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    useEffect(() => {
+        setDepartMap(depart);
+        setArriveMap(arrive);
+    }, [depart, arrive]);
+    const handleCityInputChange = (event) => {
+        setCityInput(event.target.value);
     };
-
-    const handleSkip = () => {
-        if (!isStepOptional(activeStep)) {
-            // You probably want to guard against something like this,
-            // it should never occur unless someone's actively trying to break something.
-            throw new Error("You can't skip a step that isn't optional.");
+    const validateForm = () => {
+        if (!selectedDate || !selectedTime || !depart || !arrive) {
+            return false;
         }
+        return true;
+    };
+    const handleCityInputKeyDown = (event) => {
+        if (event.key === 'Enter' && cityInput !== '') {
+            // Vérifier si la ville est déjà ajoutée
+            if (!cities.includes(cityInput)) {
+                setCities([...cities, cityInput]);
+                setEtapeVilles([...etapeVilles, cityInput]);
 
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-        setSkipped((prevSkipped) => {
-            const newSkipped = new Set(prevSkipped.values());
-            newSkipped.add(activeStep);
-            return newSkipped;
-        });
+            }
+            setCityInput('');
+        }
     };
 
-    const handleReset = () => {
-        setActiveStep(0);
+    const handleCityChipDelete = (cityToDelete) => {
+        setCities(cities.filter((city) => city !== cityToDelete));
+        setEtapeVilles(etapeVilles.filter((city) => city !== cityToDelete));
     };
-
 
     return (
-        <Container fixed>
-            <Box sx={{width: '100%'}}>
-                <Stepper activeStep={activeStep}>
-                    {steps.map((label, index) => {
-                        const stepProps = {};
-                        const labelProps = {};
+        <Container>
+            <h1>Nouveau Trajet</h1>
+            <form onSubmit={handleFormSubmit}>
+                <Grid xs={12} container rowSpacing={2} columnSpacing={{xs: 5, sm: 5, md: 8}}>
+                    <Grid item xs={5}>
+                        <TextField
+                            id="date"
+                            label="Date de votre départ"
+                            type="date"
+                            defaultValue=""
+                            sx={{width: 220}}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            onChange={(e) => setSelectedDate(e.target.value)}
+                            required
 
-                        if (isStepSkipped(index)) {
-                            stepProps.completed = false;
-                        }
-                        return (
-                            <Step key={label} {...stepProps}>
-                                <StepLabel {...labelProps}>{label}</StepLabel>
-                            </Step>
-                        );
-                    })}
-                </Stepper>
-                {activeStep === steps.length ? (
-                    <React.Fragment>
-                        <Typography sx={{mt: 2, mb: 1}}>
-                            All steps completed - you&apos;re finished
-                        </Typography>
-                        <Box sx={{display: 'flex', flexDirection: 'row', pt: 2}}>
-                            <Box sx={{flex: '1 1 auto'}}/>
-                        </Box>
-                    </React.Fragment>
-                ) : (
-                    <React.Fragment>
-                       <NewTrajetStep1/>
-                        <Box sx={{display: 'flex', flexDirection: 'row', pt: 2}}>
-                            <Button
-                                color="inherit"
-                                disabled={activeStep === 0}
-                                onClick={handleBack}
-                                sx={{mr: 1}}
-                            >
-                                Retour
-                            </Button>
-                            <Box sx={{flex: '1 1 auto'}}/>
-                            <Button onClick={handleNext}>
-                                {activeStep === steps.length - 1 ? 'Valider' : 'Suivant'}
-                            </Button>
-                        </Box>
-                    </React.Fragment>
-                )}
-            </Box>
+                        />
+                        <TextField
+                            id="time"
+                            label="Heure de départ"
+                            type="time"
+                            defaultValue=""
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            inputProps={{
+                                step: 300, // 5 min
+                            }}
+                            sx={{width: 150}}
+                            onChange={(e) => setSelectedTime(e.target.value)}
+                            required
+                        /><br/><br/>
+                        <TextField
+                            id="input-with-icon-textfield"
+                            label="Lieu de départ"
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <LocationOnIcon />
+                                    </InputAdornment>
+                                ),
+                            }}
+                            variant="standard"
+                            value={depart}
+                            onChange={(e) => setDepart(e.target.value)}
+                            onBlur={(e) => setDepart(e.target.value)}
+                            required
+                        /><br/><br/>
+                        <TextField
+                            id="input-with-icon-textfield"
+                            label="Lieu d'arriver"
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <LocationOnIcon />
+                                    </InputAdornment>
+                                ),
+                            }}
+                            variant="standard"
+                            value={arrive}
+                            onChange={(e) => setArrive(e.target.value)}
+                            onBlur={(e) => setArrive(e.target.value)}
+                            required
+                        /><br/><br/>
+                        <TextField
+                            label="Ajouter des étapes ?"
+                            value={cityInput}
+                            onChange={handleCityInputChange}
+                            onKeyDown={handleCityInputKeyDown}
+                        />
+                        {cities.map((city) => (
+                            <Chip
+                                key={city}
+                                label={city}
+                                onDelete={() => handleCityChipDelete(city)}
+                                style={{ margin: '0.5rem' }}
+                            />
+                        ))}
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Map etapes={etapeVilles} depart={departMap} arrive={arriveMap} width="100vh" height="300px"/>
+                    </Grid>
+                </Grid>
+                <Button variant="contained" color="primary" onClick={handleButtonClick}>
+                    Cliquez-moi
+                </Button>
+                <Snackbar
+                    anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                    open={showAlert}
+                    autoHideDuration={3000} // Temps en millisecondes avant de cacher l'alerte
+                    onClose={() => setShowAlert(false)}
+                >
+                    <Alert severity="success" onClose={() => setShowAlert(false)}>
+                        This is a success alert — check it out!
+                    </Alert>
+                </Snackbar>
+                <Box mt={11} mb={11} />
+            </form>
         </Container>
+
     );
-}
+};
+
+export default StepperForm;

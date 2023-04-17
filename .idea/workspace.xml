@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="cde1c60c-71e7-4c95-8e22-3b44151006b6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/trajet/TableListeTrajet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/trajet/TableListeTrajet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/newTrajet/NewTrajetStep1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/trajetDetail/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/trajetDetail/Map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/NouveauTrajet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/NouveauTrajet.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,11 +90,24 @@
       <workItem from="1680762909458" duration="3321000" />
       <workItem from="1681366006055" duration="5847000" />
       <workItem from="1681379305019" duration="996000" />
-      <workItem from="1681386453958" duration="6046000" />
+      <workItem from="1681386453958" duration="11969000" />
+      <workItem from="1681641435367" duration="4976000" />
+      <workItem from="1681646797342" duration="12351000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
