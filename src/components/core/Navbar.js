@@ -16,7 +16,6 @@ import Link from "@mui/material/Link";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import CommuteIcon from "@material-ui/icons/Commute";
 import MessageIcon from "@material-ui/icons/Message";
-import NotificationsIcon from "@material-ui/icons/Notifications";
 import LogoutIcon from "@material-ui/icons/ExitToApp";
 import { Chip } from "@mui/material";
 
@@ -39,21 +38,30 @@ function ResponsiveAppBar() {
     window.location.href = "/";
     setIsAuthenticated(false);
   };
+  function handleNav(event, path) {
+    event.preventDefault();
+    window.location.href = path;
+  }
 
   const pages = ["Proposer un trajet"];
   const settings = [
     {
       label: "Profil",
       icon: <AccountCircleIcon sx={{ backgroundColor: "white" }} />,
+      component: Link,
+      onClick: (event) => handleNav(event, "/profil"),
     },
     {
       label: "Trajet",
       icon: <CommuteIcon />,
       component: Link,
-      to: "/connexion",
+      onClick: (event) => handleNav(event, "/trajet"),
     },
-    { label: "Message", icon: <MessageIcon /> },
-    { label: "Notification", icon: <NotificationsIcon /> },
+    {
+      label: "Message",
+      icon: <MessageIcon />,
+      onClick: (event) => handleNav(event, "/discussion"),
+    },
     { label: "Déconnexion", icon: <LogoutIcon />, onClick: handleLogout },
   ];
 
@@ -172,7 +180,7 @@ function ResponsiveAppBar() {
 
           <Box sx={{ flexGrow: 0, backgroundColor: "#022B3A" }}>
             {isAuthenticated ? (
-              <Box>
+              <>
                 <Tooltip title="Paramètres">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                     <Avatar alt="" src="/static/images/avatar/2.jpg" />
@@ -210,7 +218,7 @@ function ResponsiveAppBar() {
                     </MenuItem>
                   ))}
                 </Menu>
-              </Box>
+              </>
             ) : (
               <Button
                 variant="outlined"
