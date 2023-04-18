@@ -12,6 +12,7 @@ const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
   textAlign: "center",
   color: theme.palette.text.secondary,
+  height: "600px",
 }));
 
 export default function BasicGrid() {
@@ -24,7 +25,13 @@ export default function BasicGrid() {
           </Item>
         </Grid>
         <Grid item xs={6}>
-          <Item>
+          <Item
+            sx={{
+              display: "flex",
+              justifyContent: "flex-end",
+              flexDirection: "column",
+            }}
+          >
             <ChatMessage />
           </Item>
         </Grid>
