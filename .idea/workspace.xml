@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cde1c60c-71e7-4c95-8e22-3b44151006b6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/newTrajet/NewTrajetStep1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/trajetDetail/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/trajetDetail/Map.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/NouveauTrajet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/NouveauTrajet.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +45,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/PapoteCarBack&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/papotecar&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -93,6 +88,7 @@
       <workItem from="1681386453958" duration="11969000" />
       <workItem from="1681641435367" duration="4976000" />
       <workItem from="1681646797342" duration="12351000" />
+      <workItem from="1681837335325" duration="1172000" />
     </task>
     <servers />
   </component>
