@@ -87,24 +87,52 @@ const StepperForm = () => {
                     body: JSON.stringify(dataPlaceArrive),
                 }
             );
-            const responseGetTrajet = await fetch(
-                "http://localhost:8080/api/greenGo/v1/trajet/read/user/15",
+
+            const idPlaceDepart = await responsePlaceCreateDepart.json();
+            const idPlaceArrive = await responsePlaceCreateArrive.json();
+            const idTrajet = await response.json();
+            console.log(idTrajet + idPlaceArrive + idPlaceDepart)
+
+            const dataStepDepart = {
+                place: { "id": idPlaceDepart.id },
+                trajet: { "id": idTrajet.id },
+                position: 1
+            };
+            const dataStepArrive = {
+                place: { "id": idPlaceArrive.id },
+                trajet: { "id": idTrajet.id },
+                position: 2
+            };
+            const responseStepDepart = await fetch(
+                "http://localhost:8080/api/greenGo/v1/step/create",
                 {
-                    method: "GET",
+                    method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${GreenGoGigaToken}`,
                     },
+                    body: JSON.stringify(dataStepDepart),
                 }
             );
-            const dataTrajetUser = await responseGetTrajet.json();
+            const responseStepArrive = await fetch(
+                "http://localhost:8080/api/greenGo/v1/step/create",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${GreenGoGigaToken}`,
+                    },
+                    body: JSON.stringify(dataStepArrive),
+                }
+            );
+
 
              if (response.ok) {
                 setTimeout(() => {
-                  //  window.location.href = "/";
+                  // window.location.href = "/";
                 }, 1000);
             } else {
-                //alert("Une erreur s'est produite lors de l'inscription.");
+                alert("Une erreur s'est produite lors de l'inscription.");
             }
         }
     };
