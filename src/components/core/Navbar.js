@@ -55,7 +55,7 @@ function ResponsiveAppBar() {
       label: "Trajet",
       icon: <CommuteIcon />,
       component: Link,
-      onClick: (event) => handleNav(event, "/trajet"),
+      onClick: (event) => handleNav(event, "/dashboard"),
     },
     {
       label: "Message",
@@ -142,7 +142,7 @@ function ResponsiveAppBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography  textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
