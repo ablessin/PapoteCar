@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   GoogleMap,
   LoadScript,
@@ -15,22 +15,37 @@ const center = {
 
 function Map(props) {
   const [response, setResponse] = React.useState(null);
+  let depart = "Nantes";
+  let arrive = "Tours";
+  let etapes = [];
+  if(props.depart && props.arrive)
+  {
+    depart = props.depart.toString();
+    arrive = props.arrive.toString();
+  }
+
+  const [dureeTrajet, setDureeTrajet] = useState('');
 
   const containerStyle = {
     width: props.width,
     height: props.height,
   };
-
   const directionsCallback = (res) => {
     if (res !== null) {
       if (res.status === "OK") {
         setResponse(res);
       } else {
-        console.log("response: ", res);
       }
     }
   };
-
+  const handleDirectionsResponse = (response) => {
+    if (response?.status === 'OK') {
+      const leg = response.routes[0]?.legs[0];
+      if (leg) {
+        setDureeTrajet(leg.duration.text);
+      }
+    }
+  };
   return (
     <div>
       <LoadScript googleMapsApiKey={googleMapsApiKey}>
@@ -42,9 +57,10 @@ function Map(props) {
         >
           <DirectionsService
             options={{
-              destination: "Paris",
-              origin: "Nantes",
+              destination: arrive,
+              origin: depart,
               travelMode: "DRIVING",
+              waypoints: props.etapes && props.etapes.length > 0 ? props.etapes.map(etape => ({ location: etape })) : [],
             }}
             callback={directionsCallback}
           />
@@ -57,6 +73,17 @@ function Map(props) {
             />
           )}
         </GoogleMap>
+        <DirectionsService
+            options={{
+              destination: arrive, // Utiliser la valeur du champ lieu d'arrivée
+              origin: depart, // Utiliser la valeur du champ lieu de départ
+              travelMode: 'DRIVING', // Mode de déplacement (ici, conduite)
+              waypoints: props.etapes && props.etapes.length > 0 ? props.etapes.map(etape => ({ location: etape })) : [],
+            }}
+            callback={handleDirectionsResponse} // Appeler la fonction de rappel avec la réponse de l'API
+        />
+
+        <p>Durée du trajet : {dureeTrajet}</p>
       </LoadScript>
     </div>
   );
