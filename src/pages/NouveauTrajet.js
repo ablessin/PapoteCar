@@ -4,7 +4,7 @@ import Map from "../components/trajetDetail/Map";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import {Alert} from "@mui/lab";
 
-const StepperForm = () => {
+const NouveauTrajet = () => {
     const [selectedDate, setSelectedDate] = useState('');
     const [selectedTime, setSelectedTime] = useState('');
     const [depart, setDepart] = useState('');
@@ -32,10 +32,24 @@ const StepperForm = () => {
             const seconds = String(dateTime.getSeconds()).padStart(2, "0");
             const formattedDateTime = `${year}-${month}-${date}T${hours}:${minutes}:${seconds}`;
 
+            const GreenGoGigaToken = localStorage.getItem('GreenGoGigaToken');
+            const GreenGoGigaUserName = localStorage.getItem('GreenGoGigaUsername');
+
+            const responseGetIdUser = await fetch(
+                "http://localhost:8080/api/greenGo/v1/user/read/username/" + GreenGoGigaUserName,
+                {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${GreenGoGigaToken}`,
+                    },
+                }
+            );
+            const idUser = await responseGetIdUser.json();
             const dataTrajet = {
-                name: nomTrajet,
-                driver: {"id" : 15},
+                driver: {"id" : idUser.id},
                 placeMax: numberPerson,
+                name: nomTrajet,
                 endPrevisionalDateTime: formattedDateTime,
                 startDateTime: formattedDateTime
             };
@@ -51,10 +65,9 @@ const StepperForm = () => {
                 departement : arrive,
                 region : arrive,
             };
-            const GreenGoGigaToken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0IiwiaWF0IjoxNjgxODM4NzY2LCJleHAiOjE2ODE5MjUxNjZ9.H-qCSroi2YrAn7S5XrVDI9TEkE2ZIuCKPcNmWQ5C6HXRj74sl_0jCo4n7pvyGETgijVo7FWx9Web_ekuYi2jjg";
 
-            const response = await fetch(
-                "http://localhost:8080/api/greenGo/v1/trajet/create",
+            const responseVerifDispo = await fetch(
+                "http://localhost:8080/api/greenGo/v1/trajet/read/isPossible/user/"+idUser.id,
                 {
                     method: "POST",
                     headers: {
@@ -64,82 +77,95 @@ const StepperForm = () => {
                     body: JSON.stringify(dataTrajet),
                 }
             );
+            const VerifDispo = await responseVerifDispo.json();
+            if(VerifDispo === true){
+                const response = await fetch(
+                    "http://localhost:8080/api/greenGo/v1/trajet/create",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${GreenGoGigaToken}`,
+                        },
+                        body: JSON.stringify(dataTrajet),
+                    }
+                );
 
-            const responsePlaceCreateDepart = await fetch(
-                "http://localhost:8080/api/greenGo/v1/place/create",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        Authorization: `Bearer ${GreenGoGigaToken}`,
-                    },
-                    body: JSON.stringify(dataPlacedepart),
+                const responsePlaceCreateDepart = await fetch(
+                    "http://localhost:8080/api/greenGo/v1/place/create",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${GreenGoGigaToken}`,
+                        },
+                        body: JSON.stringify(dataPlacedepart),
+                    }
+                );
+                const responsePlaceCreateArrive = await fetch(
+                    "http://localhost:8080/api/greenGo/v1/place/create",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${GreenGoGigaToken}`,
+                        },
+                        body: JSON.stringify(dataPlaceArrive),
+                    }
+                );
+
+                const idPlaceDepart = await responsePlaceCreateDepart.json();
+                const idPlaceArrive = await responsePlaceCreateArrive.json();
+                const idTrajet = await response.json();
+
+                const dataStepDepart = {
+                    place: { "id": idPlaceDepart.id },
+                    trajet: { "id": idTrajet.id },
+                    position: 1
+                };
+                const dataStepArrive = {
+                    place: { "id": idPlaceArrive.id },
+                    trajet: { "id": idTrajet.id },
+                    position: 2
+                };
+                const responseStepDepart = await fetch(
+                    "http://localhost:8080/api/greenGo/v1/step/create",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${GreenGoGigaToken}`,
+                        },
+                        body: JSON.stringify(dataStepDepart),
+                    }
+                );
+                const responseStepArrive = await fetch(
+                    "http://localhost:8080/api/greenGo/v1/step/create",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${GreenGoGigaToken}`,
+                        },
+                        body: JSON.stringify(dataStepArrive),
+                    }
+                );
+
+                if (response.ok) {
+                    setTimeout(() => {
+                        // window.location.href = "/";
+                    }, 1000);
+                } else {
+                    alert("Une erreur s'est produite lors de l'inscription.");
                 }
-            );
-            const responsePlaceCreateArrive = await fetch(
-                "http://localhost:8080/api/greenGo/v1/place/create",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        Authorization: `Bearer ${GreenGoGigaToken}`,
-                    },
-                    body: JSON.stringify(dataPlaceArrive),
-                }
-            );
-
-            const idPlaceDepart = await responsePlaceCreateDepart.json();
-            const idPlaceArrive = await responsePlaceCreateArrive.json();
-            const idTrajet = await response.json();
-            console.log(idTrajet + idPlaceArrive + idPlaceDepart)
-
-            const dataStepDepart = {
-                place: { "id": idPlaceDepart.id },
-                trajet: { "id": idTrajet.id },
-                position: 1
-            };
-            const dataStepArrive = {
-                place: { "id": idPlaceArrive.id },
-                trajet: { "id": idTrajet.id },
-                position: 2
-            };
-            const responseStepDepart = await fetch(
-                "http://localhost:8080/api/greenGo/v1/step/create",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        Authorization: `Bearer ${GreenGoGigaToken}`,
-                    },
-                    body: JSON.stringify(dataStepDepart),
-                }
-            );
-            const responseStepArrive = await fetch(
-                "http://localhost:8080/api/greenGo/v1/step/create",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        Authorization: `Bearer ${GreenGoGigaToken}`,
-                    },
-                    body: JSON.stringify(dataStepArrive),
-                }
-            );
-
-
-             if (response.ok) {
-                setTimeout(() => {
-                  // window.location.href = "/";
-                }, 1000);
-            } else {
-                alert("Une erreur s'est produite lors de l'inscription.");
+            }else {
+                alert("Attention vous avez déjà créer un trajet à cette date !")
             }
         }
     };
     useEffect(() => {
         let timeoutId;
-
-        if (showAlert) {
+        if (showAlert ) {
             timeoutId = setTimeout(() => {
                 setShowAlert(false);
             }, 3000);
@@ -303,4 +329,4 @@ const StepperForm = () => {
     );
 };
 
-export default StepperForm;
+export default NouveauTrajet;
