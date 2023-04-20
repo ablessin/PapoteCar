@@ -9,7 +9,7 @@ import Map from "../pages/DashboardTrajet";
 import TrajetDetails from "../pages/TrajetDetails";
 import DashboardTrajet from "../pages/DashboardTrajet";
 import NouveauTrajet from "../pages/NouveauTrajet";
-import Profile from "../pages/Profile"
+import Profile from "../pages/Profile";
 
 const Router = () => {
   return (
@@ -18,12 +18,14 @@ const Router = () => {
         <Route>
           <Route exact path={"/inscription"} element={<Inscription />} />
           <Route exact path={"/connexion"} element={<Connexion />} />
-          <Route exact path={"/trajet"} element={<Trajet/>}/>
+          <Route exact path={"/trajet"} element={<Trajet />} />
           <Route exact path={"/"} element={<Home />} />
           <Route exact path={"/discussion"} element={<Discussion />} />
           <Route exact path={"/trajet/details"} element={<TrajetDetails />} />
           <Route exact path={"/profil"} element={<Profile />} />
-          <Route path={"*"} element={<NotFound/>} />
+          <Route exact path={"/dashboard"} element={<DashboardTrajet />} />
+          <Route exact path={"/NouveauTrajet"} element={<NouveauTrajet />} />
+          <Route path={"*"} element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

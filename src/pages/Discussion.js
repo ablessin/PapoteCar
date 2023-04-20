@@ -18,6 +18,8 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function BasicGrid() {
   const [currentChatId, setCurrentChatId] = React.useState();
   const [currentUserId, setCurrentUserId] = React.useState();
+  const [currentTrajetId, setCurrentTrajetId] = React.useState();
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container>
@@ -40,12 +42,13 @@ export default function BasicGrid() {
             <ChatMessage
               currentChatId={currentChatId}
               currentUserId={currentUserId}
+              setCurrentTrajetId={setCurrentTrajetId}
             />
           </Item>
         </Grid>
         <Grid item xs={3}>
           <Item>
-            <ChatInfo />
+            <ChatInfo currentTrajetId={currentTrajetId} />
           </Item>
         </Grid>
       </Grid>

@@ -45,7 +45,7 @@ export default function ChatList({ setCurrentChatId, setCurrentUserId }) {
         );
         const data = await response.json();
         setChatList(data);
-        console.log("data", data);
+        console.log("data", data.id);
       } catch (error) {
         console.error(error);
       }
@@ -74,7 +74,7 @@ export default function ChatList({ setCurrentChatId, setCurrentUserId }) {
                 <AccountCircleIcon />
               </Grid>
               <Grid item xs={9}>
-                <Typography variant="h5">Title</Typography>
+                <Typography variant="h5">Nom du trajet</Typography>
               </Grid>
               <Typography>Départ</Typography>
               <ArrowForwardIcon />
