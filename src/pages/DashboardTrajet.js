@@ -48,7 +48,6 @@ export default function DashboardTrajet() {
             );
             const Trajet = await responseGetTrajet.json();
             setTrajet(Trajet);
-            console.log(Trajet)
 
         }
         fetchTrajet();
