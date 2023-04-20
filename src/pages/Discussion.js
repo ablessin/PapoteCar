@@ -16,12 +16,17 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function BasicGrid() {
+  const [currentChatId, setCurrentChatId] = React.useState();
+  const [currentUserId, setCurrentUserId] = React.useState();
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container>
         <Grid item xs={3}>
           <Item>
-            <ChatList />
+            <ChatList
+              setCurrentChatId={setCurrentChatId}
+              setCurrentUserId={setCurrentUserId}
+            />
           </Item>
         </Grid>
         <Grid item xs={6}>
@@ -32,7 +37,10 @@ export default function BasicGrid() {
               flexDirection: "column",
             }}
           >
-            <ChatMessage />
+            <ChatMessage
+              currentChatId={currentChatId}
+              currentUserId={currentUserId}
+            />
           </Item>
         </Grid>
         <Grid item xs={3}>
